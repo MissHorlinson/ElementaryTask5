@@ -20,15 +20,15 @@ public class NumberController {
         int num = model.getNumber();
 
         if (num == 0) {
-            System.out.println(num_1_9[num]);
+            output.result(num_1_9[0][num]);
         } else if (num < 10) {
-            System.out.println(getUnits(num));
+            output.result(getUnits(num));
         } else if (num >= 10 && num < 100) {
-            System.out.println(getDozens(num));
+            output.result(getDozens(num));
         } else if (num >= 100 && num < 1000) {
-            System.out.println(getHundreds(num));
+            output.result(getHundreds(num));
         } else if (num >= 1000 && num < 1000000) {
-            System.out.println(getThousands(num));
+            output.result(getThousands(num));
         }
     }
 
