@@ -27,7 +27,7 @@ public class NumberController {
             System.out.println(getDozens(num));
         } else if (num >= 100 && num < 1000) {
             System.out.println(getHundreds(num));
-        } else if (num >= 1000 && num < 99999) {
+        } else if (num >= 1000 && num < 1000000) {
             System.out.println(getThousands(num));
         }
     }
@@ -42,7 +42,7 @@ public class NumberController {
         int unit = num % 10;
         String stringView;
 
-        if(num > 10 && num < 20) {
+        if (num > 10 && num < 20) {
             stringView = num_11_19[unit];
         } else {
             stringView = num_10_90[dozen] + " " + getUnits(unit);
@@ -62,21 +62,14 @@ public class NumberController {
         int hundreds = num % 1000;
         int form = thousand % 10;
 
-        if(thousand < 10) {
+        if (thousand < 10) {
             return getUnitForm(form) + " " + getThousandForm(form) + " " + getHundreds(hundreds);
-        }
-        else if(thousand >= 10 && thousand <= 20) {
+        } else if (thousand >= 10 && thousand <= 20) {
             return getDozens(thousand) + " " + forms[2] + " " + getHundreds(hundreds);
-        }
-
-
-
-        else if(thousand > 20 && thousand < 100) {
+        } else if (thousand > 20 && thousand < 100) {
             return getDozenThousands(thousand) + " " + getThousandForm(form) + " " + getHundreds(hundreds);
-        }
-
-        else if(thousand >= 100 && thousand < 1000) {
-            return getHundreds(thousand) + " " + getThousandForm(form) + " " + getHundreds(hundreds);
+        } else if (thousand >= 100 && thousand < 1000) {
+            return getHundredThousands(thousand) + " " + getThousandForm(form) + " " + getHundreds(hundreds);
         }
         return null;
     }
@@ -86,12 +79,19 @@ public class NumberController {
         int unit = num % 10;
         String stringView;
 
-        if(num > 10 && num < 20) {
+        if (num > 10 && num < 20) {
             stringView = num_11_19[unit];
         } else {
             stringView = num_10_90[dozen] + " " + getUnitForm(unit);
         }
         return stringView;
+    }
+
+    public String getHundredThousands(int num) {
+        int hundreds = num / 100;
+        int dozen = num % 100;
+
+        return num_100_900[hundreds] + " " + getDozenThousands(dozen);
     }
 
     public String getUnitForm(int num) {
