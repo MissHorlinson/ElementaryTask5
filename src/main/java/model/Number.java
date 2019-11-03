@@ -1,6 +1,7 @@
 package model;
 
 public class Number {
+
     private int number;
 
     public Number() { }

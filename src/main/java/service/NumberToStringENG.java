@@ -1,6 +1,7 @@
 package service;
 
 public class NumberToStringENG {
+
     private String[] num_1_9 = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     private String[] num_11_19 = {"", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
     private String[] num_10_90 = {"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
@@ -13,14 +14,12 @@ public class NumberToStringENG {
     public String getDozen(int num) {
         int dozen = num / 10;
         int unit = num % 10;
-        String stringView;
 
         if (num > 10 && num < 20) {
-            stringView = num_11_19[unit];
+            return num_11_19[unit];
         } else {
-            stringView = num_10_90[dozen] + " " + getUnit(unit);
+            return num_10_90[dozen] + " " + getUnit(unit);
         }
-        return stringView;
     }
 
     public String getHundred(int num) {

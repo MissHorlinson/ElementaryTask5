@@ -4,6 +4,7 @@ import service.NumberToStringENG;
 import util.*;
 
 public class NumberControllerENG {
+
     private Output            output = new Output();
     private NumberToStringENG service = new NumberToStringENG();
 

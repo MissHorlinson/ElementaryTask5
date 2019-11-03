@@ -4,9 +4,10 @@ import model.Number;
 import util.*;
 
 public class LanguageController {
-    private Input     input = new Input();
-    private Output    output = new Output();
-    private Validator validator = new Validator();
+
+    private Input               input = new Input();
+    private Output              output = new Output();
+    private Validator           validator = new Validator();
     private NumberControllerENG eng = new NumberControllerENG();
     private NumberControllerRUS rus = new NumberControllerRUS();
 
@@ -27,7 +28,7 @@ public class LanguageController {
                 break;
             }
 
-            output.wrongChoice();
+            output.nonexistentChoice();
             if (!shouldContinue())
                 break;
         }
@@ -35,7 +36,7 @@ public class LanguageController {
 
     public int getNumber() {
         String number = input.getString();
-        while (!validator.isNumber(number)) {
+        while (!validator.isValid(number)) {
             output.notNumber();
             number = input.getString();
         }

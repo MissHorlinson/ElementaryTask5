@@ -6,7 +6,6 @@ public class Main {
         while (true) {
             LanguageController controller = new LanguageController();
             controller.languageChose();
-
             if (!controller.shouldContinue())
                 break;
         }
